@@ -1,4 +1,4 @@
-.Modal {
+.app {
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
 }
 
 
-.Modal-header {
+.app-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;

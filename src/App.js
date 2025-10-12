@@ -9,9 +9,6 @@ export default function App() {
   const[phone, setPhone] = useState('');
   const [dob, setDob] = useState('')
 
-
-  {/*modal form open & close function*/}
-
   const handleClick = () => {
     setIsOpen(true);
   };
@@ -19,7 +16,6 @@ export default function App() {
   const closeRequest = () => {
     setIsOpen(false);
   };
-  {/*form functions starts here*/}
 
   const handleForm =(e)=>{
     e.preventDefault();
@@ -71,7 +67,7 @@ export default function App() {
 
 
   return (
-    <div className="Modal">
+    <div className="app">
       <h1>User Details Modal</h1>
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
@@ -80,7 +76,6 @@ export default function App() {
         isOpen={isOpen}
         onRequestClose={closeRequest}
         shouldCloseOnOverlayClick={true}
-        ariaHideApp={false}
         className='modal'
         overlayClassName='modal-overlay'
         style={{
