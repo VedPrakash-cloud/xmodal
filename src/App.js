@@ -79,6 +79,7 @@ export default function App() {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeRequest}
+        shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
         className='modal'
         overlayClassName='modal-overlay'
