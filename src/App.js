@@ -77,6 +77,7 @@ export default function App() {
         onRequestClose={closeRequest}
         ariaHideApp={false}
         shouldCloseOnOverlayClick={true}
+        className='modal'
         overlayClassName='modal-overlay'
         style={{
           content: {
