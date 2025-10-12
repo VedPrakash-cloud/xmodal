@@ -57,7 +57,7 @@ export default function App() {
       PhoneNumber:phone,
     }
 
-    
+
     const prevData = JSON.parse(localStorage.getItem("details")) || [];
     prevData.push(userData);
     localStorage.setItem('details', JSON.stringify(prevData));
@@ -80,6 +80,8 @@ export default function App() {
         isOpen={isOpen}
         onRequestClose={closeRequest}
         ariaHideApp={false}
+        className='modal'
+        overlayClassName='modal-overlay'
         style={{
           content: {
             width: "min-content",
@@ -96,7 +98,7 @@ export default function App() {
       >
           <div className="modal-content">
             <h1>Fill Details</h1>
-            <form className="form-detail" type='submit' onSubmit={handleForm} noValidate>
+            <form className="form-detail" type='submit' onSubmit={handleForm}>
               <label htmlFor="User Name">
                 <h3>UserName:</h3>
               </label>
@@ -114,7 +116,7 @@ export default function App() {
                 <h3>Email Address:</h3>
               </label>
               <input
-                id="text"
+                id="email"
                 type="email"
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
@@ -133,7 +135,7 @@ export default function App() {
                 pattern="[0-9]*"
                 value={phone}
                 onChange={(e)=>setPhone(e.target.value)}
-                id="number"
+                id="phone"
                 required
                 style={{
                   padding: "10px",
