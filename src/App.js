@@ -29,7 +29,7 @@ export default function App() {
       isValid= false;
     }
 
-    const phoneRegex =/^[0-9]{10}$/;
+    const phoneRegex =/^\d{10}$/;
     if(!phoneRegex.test(phone)){
       alert('Invalid phone number. Please enter a 10-digit phone number.');
       isValid= false;
@@ -75,8 +75,8 @@ export default function App() {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeRequest}
+        ariaHideApp={false}
         shouldCloseOnOverlayClick={true}
-        className='modal'
         overlayClassName='modal-overlay'
         style={{
           content: {
@@ -94,8 +94,8 @@ export default function App() {
       >
           <div className="modal-content">
             <h1>Fill Details</h1>
-            <form className="form-detail" type='submit' onSubmit={handleForm}>
-              <label htmlFor="User Name">
+            <form className="form-detail" onSubmit={handleForm}>
+              <label htmlFor="username">
                 <h3>UserName:</h3>
               </label>
               <input
@@ -108,7 +108,7 @@ export default function App() {
                   padding: "10px",
                 }}
               />
-              <label htmlFor="Email">
+              <label htmlFor="email">
                 <h3>Email Address:</h3>
               </label>
               <input
@@ -121,7 +121,7 @@ export default function App() {
                   padding: "10px",
                 }}
               />
-              <label htmlFor="Phone Number">
+              <label htmlFor="phone">
                 <h3>Phone Number:</h3>
               </label>
               <input
@@ -137,7 +137,7 @@ export default function App() {
                   padding: "10px",
                 }}
               />
-              <label htmlFor="DOB">
+              <label htmlFor="dob">
                 <h3>Date of Birth:</h3>
               </label>
               <input
