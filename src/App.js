@@ -4,10 +4,10 @@ import "./App.css";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState('');
-  const[email, setEmail] = useState('');
-  const[phone, setPhone] = useState('');
-  const [dob, setDob] = useState('')
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [dob, setDob] = useState("");
 
   const handleClick = () => {
     setIsOpen(true);
@@ -17,54 +17,50 @@ export default function App() {
     setIsOpen(false);
   };
 
-  const handleForm =(e)=>{
+  const handleForm = (e) => {
     e.preventDefault();
 
     let isValid = true;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if(!emailRegex.test(email)){
-      alert("Invalid email. Please check your email address.")
-      isValid= false;
+    if (!emailRegex.test(email)) {
+      alert("Invalid email. Please check your email address.");
+      isValid = false;
     }
 
-    const phoneRegex =/^\d{10}$/;
-    if(!phoneRegex.test(phone)){
-      alert('Invalid phone number. Please enter a 10-digit phone number.');
-      isValid= false;
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+      alert("Invalid phone number. Please enter a 10-digit phone number.");
+      isValid = false;
     }
 
     const selectedDate = new Date(dob);
-    const today  = new Date();
+    const today = new Date();
 
-    if(selectedDate > today){
-      alert('Invalid date of birth. Date of birth cannot be in the future.');
-      isValid=false;
+    if (selectedDate > today) {
+      alert("Invalid date of birth. Date of birth cannot be in the future.");
+      isValid = false;
     }
 
-    if(!isValid) return;
+    if (!isValid) return;
 
-    
     const userData = {
-      userName:user,
-      email:email,
+      userName: user,
+      email: email,
       DOB: dob,
-      PhoneNumber:phone,
-    }
-
+      PhoneNumber: phone,
+    };
 
     const prevData = JSON.parse(localStorage.getItem("details")) || [];
     prevData.push(userData);
-    localStorage.setItem('details', JSON.stringify(prevData));
+    localStorage.setItem("details", JSON.stringify(prevData));
 
-    setDob('');
-    setEmail('')
-    setPhone('');
-    setUser('');
-
-  }
-
+    setDob("");
+    setEmail("");
+    setPhone("");
+    setUser("");
+  };
 
   return (
     <div className="app">
@@ -72,27 +68,28 @@ export default function App() {
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
       </button>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeRequest}
-        ariaHideApp={false}
-        shouldCloseOnOverlayClick={true}
-        className='modal'
-        overlayClassName='modal-overlay'
-        style={{
-          content: {
-            width: "min-content",
-            height: "min-content",
-            margin: "auto",
-            padding: "20px",
-            textAlign: "center",
-            borderRadius: "10px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          },
-        }}
-      >
+      <div className="modal">
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={closeRequest}
+          ariaHideApp={false}
+          shouldCloseOnOverlayClick={true}
+          className="modal"
+          overlayClassName="modal-overlay"
+          style={{
+            content: {
+              width: "min-content",
+              height: "min-content",
+              margin: "auto",
+              padding: "20px",
+              textAlign: "center",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            },
+          }}
+        >
           <div className="modal-content">
             <h1>Fill Details</h1>
             <form className="form-detail" onSubmit={handleForm}>
@@ -103,7 +100,7 @@ export default function App() {
                 type="text"
                 id="username"
                 value={user}
-                onChange={(e)=>setUser(e.target.value)}
+                onChange={(e) => setUser(e.target.value)}
                 required
                 style={{
                   padding: "10px",
@@ -116,7 +113,7 @@ export default function App() {
                 id="email"
                 type="email"
                 value={email}
-                onChange={(e)=>setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 style={{
                   padding: "10px",
@@ -131,7 +128,7 @@ export default function App() {
                 maxLength={10}
                 pattern="[0-9]*"
                 value={phone}
-                onChange={(e)=>setPhone(e.target.value)}
+                onChange={(e) => setPhone(e.target.value)}
                 id="phone"
                 required
                 style={{
@@ -145,17 +142,20 @@ export default function App() {
                 type="date"
                 id="dob"
                 value={dob}
-                onChange={(e)=>setDob(e.target.value)}
+                onChange={(e) => setDob(e.target.value)}
                 required
                 style={{
                   padding: "10px",
                 }}
               />
               <br />
-              <button className="submit-button" type="submit">Submit</button>
+              <button className="submit-button" type="submit">
+                Submit
+              </button>
             </form>
           </div>
-      </Modal>
+        </Modal>
+      </div>
     </div>
   );
 }
