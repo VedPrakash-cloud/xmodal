@@ -3,8 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 
-Modal.setAppElement(document.getElementById('root') || 'body')
-
+Modal.setAppElement(document.getElementById('root') || 'body');
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState("");
@@ -76,6 +75,11 @@ export default function App() {
           onRequestClose={closeRequest}
           className='modal'
           closeTimeoutMS={0}
+          overlayClassName={{
+            base: 'ModalOverlay',
+            afterOpen: 'ModalOverlay--after-open',
+            beforeClose: 'ModalOverlay--before-close'
+          }}
           style={{
             content: {
               width: "min-content",
