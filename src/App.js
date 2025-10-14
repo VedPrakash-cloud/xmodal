@@ -72,6 +72,7 @@ export default function App() {
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
+          className="modal"
           style={{
             content: {
               width: "min-content",
