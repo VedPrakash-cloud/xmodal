@@ -63,7 +63,7 @@ export default function App() {
   };
 
   return (
-    <div className="modal">
+    <div className="app">
       <h1>User Details Modal</h1>
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
@@ -86,6 +86,7 @@ export default function App() {
             },
           }}
         >
+          <div className="modal">
           <div className="modal-content">
             <h1>Fill Details</h1>
             <form className="form-detail" onSubmit={handleForm}>
@@ -149,6 +150,7 @@ export default function App() {
                 Submit
               </button>
             </form>
+            </div>
           </div>
         </Modal>
       </div>
