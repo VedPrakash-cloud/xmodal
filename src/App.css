@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-/* .modal{
-  width: 100vh;
-  height: 100vh;
-} */
-
 .modal-button, .submit-button{
   background-color: #3b82f6;
   color: white;
@@ -37,18 +32,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-/* .ReactModal__Overlay {
-  background-color: rgba(255, 255, 255, 0.75);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-}
-
-.ReactModal__Content {
-  pointer-events: auto;
-} */

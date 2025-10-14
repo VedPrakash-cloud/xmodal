@@ -1,6 +1,9 @@
 import Modal from "react-modal";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import "./App.css";
+
+
+Modal.setAppElement(document.getElementById('root') || 'body')
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,15 +11,6 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
-
-
-  const appRef = useRef(null);
-
-  useEffect(()=>{
-    if(appRef.current){
-      Modal.setAppElement(appRef.current)
-    }
-  },[])
 
   const handleClick = () => {
     setIsOpen(true);
@@ -64,7 +58,7 @@ export default function App() {
     const prevData = JSON.parse(localStorage.getItem("details")) || [];
     prevData.push(userData);
     localStorage.setItem("details", JSON.stringify(prevData));
-
+    setIsOpen(false);
     setDob("");
     setEmail("");
     setPhone("");
@@ -72,7 +66,7 @@ export default function App() {
   };
 
   return (
-    <div id="root" ref={appRef} className="app">
+    <div id="root" className="app">
       <h1>User Details Modal</h1>
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
@@ -80,7 +74,6 @@ export default function App() {
         <Modal
           isOpen={isOpen}
           onRequestClose={closeRequest}
-          ariaHideApp={false}
           className='modal'
           closeTimeoutMS={0}
           style={{
