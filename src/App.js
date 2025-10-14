@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 export default function App() {
@@ -8,6 +8,15 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
+
+
+  const appRef = useRef(null);
+
+  useEffect(()=>{
+    if(appRef.current){
+      Modal.setAppElement(appRef.current)
+    }
+  },[])
 
   const handleClick = () => {
     setIsOpen(true);
@@ -63,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <div className="app">
+    <div id="root" ref={appRef} className="app">
       <h1>User Details Modal</h1>
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
