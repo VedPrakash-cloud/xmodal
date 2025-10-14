@@ -68,12 +68,13 @@ export default function App() {
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
       </button>
-      <div className="modal">
         <Modal
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
           shouldCloseOnOverlayClick={true}
+          className="modal"
+          overlayClassName="modal-overlay"
           style={{
             content: {
               width: "min-content",
@@ -154,6 +155,5 @@ export default function App() {
           </div>
         </Modal>
       </div>
-    </div>
   );
 }
