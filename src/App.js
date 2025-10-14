@@ -68,11 +68,11 @@ export default function App() {
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
       </button>
+      <div className="modal">
         <Modal
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
-          className="modal"
           style={{
             content: {
               width: "min-content",
@@ -152,6 +152,7 @@ export default function App() {
             </form>
           </div>
         </Modal>
+      </div>
       </div>
   );
 }
