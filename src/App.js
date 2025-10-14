@@ -72,8 +72,6 @@ export default function App() {
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
-          className="modal"
-          overlayClassName="modal-overlay"
           style={{
             content: {
               width: "min-content",
