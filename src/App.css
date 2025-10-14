@@ -45,6 +45,8 @@
   justify-content: center;
   align-items: center;
   pointer-events: auto;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
 }
 
 .ReactModal__Content {

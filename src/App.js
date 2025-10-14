@@ -72,6 +72,7 @@ export default function App() {
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
+          appElement={document.getElementById('root')}
           shouldCloseOnOverlayClick={true}
           className='modal'
           overlayClassName='modal-overlay'
