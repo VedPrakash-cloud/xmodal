@@ -72,8 +72,15 @@ export default function App() {
           isOpen={isOpen}
           onRequestClose={closeRequest}
           ariaHideApp={false}
+          shouldCloseOnOverlayClick={true}
+          className='modal'
+          overlayClassName='modal-overlay'
           style={{
+            overlay: {
+              zIndex: 1000,
+            },
             content: {
+              zIndex:1001,
               width: "min-content",
               height: "min-content",
               margin: "auto",
