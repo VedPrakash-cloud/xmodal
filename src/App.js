@@ -86,7 +86,6 @@ export default function App() {
             },
           }}
         >
-          <div className="modal">
           <div className="modal-content">
             <h1>Fill Details</h1>
             <form className="form-detail" onSubmit={handleForm}>
@@ -151,7 +150,6 @@ export default function App() {
               </button>
             </form>
             </div>
-          </div>
         </Modal>
       </div>
   );
