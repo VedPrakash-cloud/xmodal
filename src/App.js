@@ -75,6 +75,7 @@ export default function App() {
           shouldCloseOnOverlayClick={true}
           className='modal'
           overlayClassName='modal-overlay'
+          closeTimeoutMS={0}
           style={{
             overlay: {
               zIndex: 1000,
