@@ -68,7 +68,6 @@ export default function App() {
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
       </button>
-      <div className="modal">
         <Modal
           isOpen={isOpen}
           onRequestClose={closeRequest}
@@ -153,6 +152,5 @@ export default function App() {
             </div>
         </Modal>
         </div>
-      </div>
   );
 }
