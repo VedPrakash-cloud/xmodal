@@ -2,8 +2,7 @@ import Modal from "react-modal";
 import { useState } from "react";
 import "./App.css";
 
-
-Modal.setAppElement(document.getElementById('root') || 'body');
+Modal.setAppElement(document.getElementById("root") || "body");
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState("");
@@ -70,90 +69,94 @@ export default function App() {
       <button type="button" onClick={handleClick} className="modal-button">
         Open Form
       </button>
-        <Modal
-          isOpen={isOpen}
-          onRequestClose={closeRequest}
-          ariaHideApp={false}
-          className='modal'
-          style={{
-            content: {
-              width: "min-content",
-              height: "min-content",
-              margin: "auto",
-              padding: "20px",
-              textAlign: "center",
-              borderRadius: "10px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            },
-          }}
-        >
-          <div className="modal-content">
-            <h1>Fill Details</h1>
-            <form className="form-detail" onSubmit={handleForm}>
-              <label htmlFor="username">
-                <h3>UserName:</h3>
-              </label>
-              <input
-                type="text"
-                id="username"
-                value={user}
-                onChange={(e) => setUser(e.target.value)}
-                required
-                style={{
-                  padding: "10px",
-                }}
-              />
-              <label htmlFor="email">
-                <h3>Email Address:</h3>
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                style={{
-                  padding: "10px",
-                }}
-              />
-              <label htmlFor="phone">
-                <h3>Phone Number:</h3>
-              </label>
-              <input
-                type="text"
-                inputMode="numeric"
-                maxLength={10}
-                pattern="[0-9]*"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                id="phone"
-                required
-                style={{
-                  padding: "10px",
-                }}
-              />
-              <label htmlFor="dob">
-                <h3>Date of Birth:</h3>
-              </label>
-              <input
-                type="date"
-                id="dob"
-                value={dob}
-                onChange={(e) => setDob(e.target.value)}
-                required
-                style={{
-                  padding: "10px",
-                }}
-              />
-              <br />
-              <button className="submit-button" type="submit">
-                Submit
-              </button>
-            </form>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeRequest}
+        shouldCloseOnOverlayClick={true}
+        ariaHideApp={false}
+        style={{
+          content: {
+            width: "min-content",
+            height: "min-content",
+            margin: "auto",
+            padding: "20px",
+            textAlign: "center",
+            borderRadius: "10px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+      >
+        {isOpen && (
+          <div className="modal" onClick={() => setIsOpen(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h1>Fill Details</h1>
+              <form className="form-detail" onSubmit={handleForm}>
+                <label htmlFor="username">
+                  <h3>UserName:</h3>
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  value={user}
+                  onChange={(e) => setUser(e.target.value)}
+                  required
+                  style={{
+                    padding: "10px",
+                  }}
+                />
+                <label htmlFor="email">
+                  <h3>Email Address:</h3>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  style={{
+                    padding: "10px",
+                  }}
+                />
+                <label htmlFor="phone">
+                  <h3>Phone Number:</h3>
+                </label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={10}
+                  pattern="[0-9]*"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  id="phone"
+                  required
+                  style={{
+                    padding: "10px",
+                  }}
+                />
+                <label htmlFor="dob">
+                  <h3>Date of Birth:</h3>
+                </label>
+                <input
+                  type="date"
+                  id="dob"
+                  value={dob}
+                  onChange={(e) => setDob(e.target.value)}
+                  required
+                  style={{
+                    padding: "10px",
+                  }}
+                />
+                <br />
+                <button className="submit-button" type="submit">
+                  Submit
+                </button>
+              </form>
             </div>
-        </Modal>
-        </div>
+          </div>
+        )}
+      </Modal>
+    </div>
   );
 }
