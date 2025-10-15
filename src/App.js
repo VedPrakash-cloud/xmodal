@@ -89,7 +89,6 @@ export default function App() {
         }}
       >
         {isOpen && (
-          <div className="modal" onClick={() => setIsOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <h1>Fill Details</h1>
               <form className="form-detail" onSubmit={handleForm}>
@@ -154,7 +153,6 @@ export default function App() {
                 </button>
               </form>
             </div>
-          </div>
         )}
       </Modal>
     </div>
