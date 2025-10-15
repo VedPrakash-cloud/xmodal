@@ -75,6 +75,10 @@ export default function App() {
         shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
         style={{
+          overlay:{
+            backgroundColor:'rgba(255,255,255,0.75)',
+            pointerEvents:'none'
+          },
           content: {
             width: "min-content",
             height: "min-content",
@@ -89,6 +93,7 @@ export default function App() {
         }}
       >
         {isOpen && (
+          <div className="modal" onClick={() => setIsOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <h1>Fill Details</h1>
               <form className="form-detail" onSubmit={handleForm}>
@@ -153,6 +158,7 @@ export default function App() {
                 </button>
               </form>
             </div>
+          </div>
         )}
       </Modal>
     </div>
